@@ -16,7 +16,6 @@ import os
 import sys
 from shutil import copyfile
 import ntpath
-import xml.dom.minidom
 
 if len(sys.argv) == 1:
   print "\n!!! The output will be in the current folder: %s !!! \n\nUsage: \n\n %s </path/to/config_file> \n" % (os.getcwd(),sys.argv[0])
