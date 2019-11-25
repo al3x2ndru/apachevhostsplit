@@ -23,8 +23,13 @@ def path_leaf(path):
   return tail or ntpath.basename(head)
 
 def fileCopy(filename):
-  copyfile(filename, path_leaf(filename)+".new")
-  return path_leaf(filename)+".new"
+  try:
+    copyfile(filename, path_leaf(filename)+".new")
+  except IOError:
+    print "\n!!! File %s doesn't exist \n" % filename
+    sys.exit(1)
+  else:
+    return path_leaf(filename)+".new"
 
 def new_httpd_conf(inputFile,stringToDelete):
   with open(inputFile, "r") as f:
