@@ -17,7 +17,7 @@ from shutil import copyfile
 import ntpath
 
 if len(sys.argv) == 1:
-  print "\n!!! The output will be in the current folder: %s !!! \n\nUsage: \n\n %s </path/to/config_file> \n" % (os.path.dirname(os.path.realpath(__file__)),sys.argv[0])
+  print "\n!!! The output will be in the current folder: %s !!! \n\nUsage: \n\n %s </path/to/config_file> \n" % (os.getcwd(),sys.argv[0])
   sys.exit(1)
 
 def path_leaf(path):
