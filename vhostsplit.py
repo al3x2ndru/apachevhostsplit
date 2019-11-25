@@ -9,12 +9,14 @@
 # @ todo	scan apachectl -S and take the input from there
 # @ todo	create /home/rack/ticketnumber/vhost-split where all the work should be and the input should be only the ticketnumber (validate)
 # @ todo 	VirtualHost port 443 append to the same file as port 80
+# @ todo	prettify the output
 
 import re
 import os
 import sys
 from shutil import copyfile
 import ntpath
+import xml.dom.minidom
 
 if len(sys.argv) == 1:
   print "\n!!! The output will be in the current folder: %s !!! \n\nUsage: \n\n %s </path/to/config_file> \n" % (os.getcwd(),sys.argv[0])
@@ -42,7 +44,8 @@ def new_httpd_conf(inputFile,stringToDelete):
         f.write(row)
 
 newInputFile=fileCopy(sys.argv[1])
-print "\nName for new config file stripped of VirtualHost(s): %s \n\n" % newInputFile,
+print "\nCopy of the original input file: %s \n" % newInputFile
+# print "\nName for new config file stripped of VirtualHost(s): %s \n" % newInputFile
 # @todo strip the file of VirtualHost(s)
 
 inputFile = open(newInputFile, "rb")
