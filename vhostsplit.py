@@ -8,6 +8,7 @@
 # @ todo 	clean the original input file for VirtualHost in the new created copy - function to delete a row already done
 # @ todo	scan apachectl -S and take the input from there
 # @ todo	create /home/rack/ticketnumber/vhost-split where all the work should be and the input should be only the ticketnumber (validate)
+# @ todo 	VirtualHost port 443 append to the same file as port 80
 
 import re
 import sys
