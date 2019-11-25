@@ -11,12 +11,13 @@
 # @ todo 	VirtualHost port 443 append to the same file as port 80
 
 import re
+import os
 import sys
 from shutil import copyfile
 import ntpath
 
 if len(sys.argv) == 1:
-  print "\n!!! The output will be in the current folder !!! \n\nUsage: \n\n %s </path/to/config_file> \n" % sys.argv[0]
+  print "\n!!! The output will be in the current folder: %s !!! \n\nUsage: \n\n %s </path/to/config_file> \n" % (os.path.dirname(os.path.realpath(__file__)),sys.argv[0])
   sys.exit(1)
 
 def path_leaf(path):
